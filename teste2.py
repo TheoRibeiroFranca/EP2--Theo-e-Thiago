@@ -1,4 +1,4 @@
-Y = nadaaaa
+Y = 'nadaaaa'
 x= "maldade"
 
 z = 'theo lindao'

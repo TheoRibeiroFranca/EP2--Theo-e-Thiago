@@ -1,6 +1,12 @@
 def foi_derrotado(matriz):
     for linhas in matriz:
-        for i in range(len(linhas)):
-            if matriz[linhas][i] == "N":
+        for elementos in linhas:
+            if elementos == "N":
                 return False
     return True
+print(foi_derrotado([
+    ['N', ' ', ' ', 'X'],
+    ['N', 'A', 'X', ' '],
+    ['X', ' ', 'N', ' '],
+    ['A', ' ', 'N', ' ']
+]))

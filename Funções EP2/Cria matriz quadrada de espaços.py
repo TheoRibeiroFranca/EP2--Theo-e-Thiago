@@ -1,12 +1,11 @@
 def cria_mapa(n):
-   listona = [] * n
-    
+    listona = []
+    linha_referencia = [' '] * n
 
-   for i in range(n):
-      linha_referencia = [' '] * n
-      listona[i] = linha_referencia
-   
-   return listona
+    for i in range(0,n):
+        listona.append(linha_referencia)
+    
+    return listona
 
 
 

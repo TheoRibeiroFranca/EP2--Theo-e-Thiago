@@ -20,4 +20,15 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientação):
                         return False
                     else:
                         return True
+mapa = [
+    [' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' '],
+    ['N', 'N', ' ', ' '],
+    [' ', ' ', ' ', ' ']
+]
+blocos = 3
+linha = 0
+coluna = 3
+orientação = "v"
+print(posicao_suporta(mapa, blocos, linha, coluna, orientação))
                 

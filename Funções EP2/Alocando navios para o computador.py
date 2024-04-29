@@ -21,25 +21,24 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientação):
                 return True
 
 def aloca_navios(mapa,blocos):
-    for i in mapa:
-        linhas = len(mapa)
-        colunas = len(i)
-        linha = random.randint(0, linhas - 1)
-        coluna = random.randint(0, colunas - 1)
-        orientacao = random.choice(['h', 'v']) 
-        for barcos in blocos:
+    linhas = len(mapa)
+    colunas = len(mapa[0])
+    linha = random.randint(0, linhas - 1)
+    coluna = random.randint(0, colunas - 1)
+    orientacao = random.choice(['h', 'v']) 
+    for barcos in blocos:
+        a = posicao_suporta(mapa, barcos, linha, coluna, orientacao)
+        while a != True:
+            linha = random.randint(0, linhas - 1)
+            coluna = random.randint(0, colunas - 1)
+            orientacao = random.choice(['h', 'v'])
             a = posicao_suporta(mapa, barcos, linha, coluna, orientacao)
-            while a != True:
-                linha = random.randint(0, linhas - 1)
-                coluna = random.randint(0, colunas - 1)
-                orientacao = random.choice(['h', 'v'])
-                a = posicao_suporta(mapa, barcos, linha, coluna, orientacao)
-            if orientacao == 'v':
-                for i in range(linha, linha + barcos):
-                    mapa[i][coluna] = 'N'
-            if orientacao == 'h':
-                for j in range(coluna, coluna+barcos):
-                    mapa[linha][j] = 'N'
+        if orientacao == 'v':
+            for i in range(linha, linha + barcos):
+                mapa[i][coluna] = 'N'
+        if orientacao == 'h':
+            for j in range(coluna, coluna+barcos):
+                mapa[linha][j] = 'N'
     return mapa
 mapa = [
     [' ', ' ', ' ', ' '],

@@ -39,7 +39,7 @@ def aloca_navios(mapa,blocos):
                     mapa[i][coluna] = 'N'
             if orientacao == 'h':
                 for j in range(coluna, coluna+barcos):
-                    mapa[linha][j] == 'N'
+                    mapa[linha][j] = 'N'
     return mapa
 mapa = [
     [' ', ' ', ' ', ' '],

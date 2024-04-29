@@ -2,7 +2,7 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientação):
     if mapa[linha][coluna] == "N":
         return False
     if orientação == "v":
-        if (coluna + blocos)-1 > len(mapa):
+        if (linha + blocos)-1 > len(mapa):
             return False
         else:
             for i in range(coluna, coluna + blocos):
@@ -12,7 +12,7 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientação):
                     return True
     if orientação == "h":
         for linhas_mapa in mapa:  
-            if (linha + blocos)-1 > len(linhas_mapa):
+            if (coluna + blocos)-1 > len(linhas_mapa):
                 return False
             else:
                 for j in range(linha, linha + blocos):
@@ -21,14 +21,14 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientação):
                     else:
                         return True
 mapa = [
-    [' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' '],
-    ['N', 'N', ' ', ' '],
+    [' ', ' ', ' ', 'N'],
+    [' ', ' ', ' ', 'N'],
+    ['N', 'N', ' ', 'N'],
     [' ', ' ', ' ', ' ']
 ]
-blocos = 3
-linha = 0
-coluna = 3
+blocos = 2
+linha = 1
+coluna = 0
 orientação = "v"
 print(posicao_suporta(mapa, blocos, linha, coluna, orientação))
                 

@@ -142,8 +142,46 @@ print ('| Bem-vindo ao INSPER - Batalha Naval |\n')
 print ('|                                     |\n')
 print (' =======   XXXXXXXXXXXXXXXXX   ======= \n')
 
-print ()
+# texto pré infos
+pais_pc = random.choice(paises)
 
+print ('Iniciando o Jogo! \n')
+
+print ('Computador está alocando os navios de guerra do país {0}...'.format(pais_pc))
+print ('Computador já está em posição de batalha! \n')
+
+# Infos Brasil
+print('1: Brasil \n')
+
+print('\t 1 cruzador \n')
+print('\t 2 torpedeiro \n')
+print('\t 1 destroyer \n')
+print('\t 1 couracado \n')
+print('\t 1 porta-avioes \n')     
+
+# Infos França
+print('2: França \n')
+
+print('\t 3 cruzador \n')
+print('\t 1 porta-avioes \n')
+print('\t 1 destroyer \n')
+print('\t 1 submarino \n')
+print('\t 1 couracado \n')  
+
+# Infos Austrália 
+print('3: Austrália \n')
+
+print('\t 1 couracado \n')
+print('\t 3 cruzador \n')
+print('\t 1 submarino \n')
+print('\t 1 porta-avioes \n')
+print('\t 1 torpedeiro \n')
+
+# Infos Rússia
+print('4: Rússia \n')
+
+# Infos Japão
+print('5: Japão \n')
 
 
 

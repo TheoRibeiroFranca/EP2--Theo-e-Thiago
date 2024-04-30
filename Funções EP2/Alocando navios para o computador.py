@@ -40,11 +40,3 @@ def aloca_navios(mapa,blocos):
             for j in range(coluna, coluna+barcos):
                 mapa[linha][j] = 'N'
     return mapa
-mapa = [
-    [' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' ']
-]
-blocos = [2,3,2]
-print(aloca_navios(mapa, blocos))

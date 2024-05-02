@@ -80,7 +80,16 @@ def mapa_print(pc, jog, pais_pc, pais_jogador):
 10 {pc[9][0]} {pc[9][1]} {pc[9][2]} {pc[9][3]} {pc[9][4]} {pc[9][5]} {pc[9][6]} {pc[9][7]} {pc[9][8]} {pc[9][9]}  10  10 {jog[9][0]} {jog[9][1]} {jog[9][2]} {jog[9][3]} {jog[9][4]} {jog[9][5]} {jog[9][6]} {jog[9][7]} {jog[9][8]} {jog[9][9]}  10
     A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J    
 ''')
-
+#função para alocar os navios do jogador
+def navio_jogador(mapa, barco, linha, coluna, orientação):
+    barcos = [barco]
+    a = posicao_suporta(mapa, barcos, linha, coluna, orientação)
+    while a != True:
+        print("Espaço inválido")
+        print("")
+        linha = input("qual linha") 
+        coluna = input("qual coluna")
+        orientação = input("qual orientação")
 # quantidade de blocos por modelo de navio
 CONFIGURACAO = {
     'destroyer': 3,

@@ -48,7 +48,7 @@ def aloca_navios(mapa,blocos):
 # Cria matriz quadrada de espaços
 def cria_mapa(n):
     listona = []
-    linha_referencia = [' '] * n
+    linha_referencia = ['  '] * n
 
     for i in range(0,n):
         listona.append(linha_referencia)
@@ -64,19 +64,20 @@ def foi_derrotado(matriz):
     return True
 
 #função para criar um mapa para o print
-def mapa_print(pc, jog):
+def mapa_print(pc, jog, pais_pc, pais_jogador):
     return(f'''
+ COMPUTADOR - {pais_pc}                   JOGADOR - {pais_jogador}
     A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J          
- 1                                1    1                                1
- 2                                2    2                                2
- 3                                3    3                                3
- 4                                4    4                                4
- 5                                5    5                                5 
- 6                                6    6                                6
- 7                                7    7                                7
- 8                                8    8                                8
- 9                                9    9                                9
-10                                10  10                                10
+ 1 {pc[0][0]} {pc[0][1]} {pc[0][2]} {pc[0][3]} {pc[0][4]} {pc[0][5]} {pc[0][6]} {pc[0][7]} {pc[0][8]} {pc[0][9]}  1    1 {jog[0][0]} {jog[0][1]} {jog[0][2]} {jog[0][3]} {jog[0][4]} {jog[0][5]} {jog[0][6]} {jog[0][7]} {jog[0][8]} {jog[0][9]}  1
+ 2 {pc[1][0]} {pc[1][1]} {pc[1][2]} {pc[1][3]} {pc[1][4]} {pc[1][5]} {pc[1][6]} {pc[1][7]} {pc[1][8]} {pc[1][9]}  2    2 {jog[1][0]} {jog[1][1]} {jog[1][2]} {jog[1][3]} {jog[1][4]} {jog[1][5]} {jog[1][6]} {jog[1][7]} {jog[1][8]} {jog[1][9]}  2
+ 3 {pc[2][0]} {pc[2][1]} {pc[2][2]} {pc[2][3]} {pc[2][4]} {pc[2][5]} {pc[2][6]} {pc[2][7]} {pc[2][8]} {pc[2][9]}  3    3 {jog[2][0]} {jog[2][1]} {jog[2][2]} {jog[2][3]} {jog[2][4]} {jog[2][5]} {jog[2][6]} {jog[2][7]} {jog[2][8]} {jog[2][9]}  3
+ 4 {pc[3][0]} {pc[3][1]} {pc[3][3]} {pc[3][3]} {pc[3][4]} {pc[3][5]} {pc[3][6]} {pc[3][7]} {pc[3][8]} {pc[3][9]}  4    4 {jog[3][0]} {jog[3][1]} {jog[3][3]} {jog[3][3]} {jog[3][4]} {jog[3][5]} {jog[3][6]} {jog[3][7]} {jog[3][8]} {jog[3][9]}  4
+ 5 {pc[4][0]} {pc[4][1]} {pc[4][4]} {pc[4][3]} {pc[4][4]} {pc[4][5]} {pc[4][6]} {pc[4][7]} {pc[4][8]} {pc[4][9]}  5    5 {jog[4][0]} {jog[4][1]} {jog[4][4]} {jog[4][3]} {jog[4][4]} {jog[4][5]} {jog[4][6]} {jog[4][7]} {jog[4][8]} {jog[4][9]}  5 
+ 6 {pc[5][0]} {pc[5][1]} {pc[5][5]} {pc[5][3]} {pc[5][4]} {pc[5][5]} {pc[5][6]} {pc[5][7]} {pc[5][8]} {pc[5][9]}  6    6 {jog[5][0]} {jog[5][1]} {jog[5][5]} {jog[5][3]} {jog[5][4]} {jog[5][5]} {jog[5][6]} {jog[5][7]} {jog[5][8]} {jog[5][9]}  6
+ 7 {pc[6][0]} {pc[6][1]} {pc[6][2]} {pc[6][3]} {pc[6][4]} {pc[6][5]} {pc[6][6]} {pc[6][7]} {pc[6][8]} {pc[6][9]}  7    7 {jog[6][0]} {jog[6][1]} {jog[6][2]} {jog[6][3]} {jog[6][4]} {jog[6][5]} {jog[6][6]} {jog[6][7]} {jog[6][8]} {jog[6][9]}  7
+ 8 {pc[7][0]} {pc[7][1]} {pc[7][2]} {pc[7][3]} {pc[7][4]} {pc[7][5]} {pc[7][6]} {pc[7][7]} {pc[7][8]} {pc[7][9]}  8    8 {jog[7][0]} {jog[7][1]} {jog[7][2]} {jog[7][3]} {jog[7][4]} {jog[7][5]} {jog[7][6]} {jog[7][7]} {jog[7][8]} {jog[7][9]}  8
+ 9 {pc[8][0]} {pc[8][1]} {pc[8][2]} {pc[8][3]} {pc[8][4]} {pc[8][5]} {pc[8][6]} {pc[8][7]} {pc[8][8]} {pc[8][9]}  9    9 {jog[8][0]} {jog[8][1]} {jog[8][2]} {jog[8][3]} {jog[8][4]} {jog[8][5]} {jog[8][6]} {jog[8][7]} {jog[8][8]} {jog[8][9]}  9
+10 {pc[9][0]} {pc[9][1]} {pc[9][2]} {pc[9][3]} {pc[9][4]} {pc[9][5]} {pc[9][6]} {pc[9][7]} {pc[9][8]} {pc[9][9]}  10  10 {jog[9][0]} {jog[9][1]} {jog[9][2]} {jog[9][3]} {jog[9][4]} {jog[9][5]} {jog[9][6]} {jog[9][7]} {jog[9][8]} {jog[9][9]}  10
     A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J    
 ''')
 
@@ -238,8 +239,10 @@ mapa_jogador = cria_mapa(10)
 mapa_computador = cria_mapa(10)
 
 #Cria os mapas printáveis
-mapa_jogador_print = mapa_print(10)
-mapa_computador_print = mapa_print(10)
+
+mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
+print(mapa_printado)
+
 # FIM - Criar o mapa do computador e do jogador
 
 #posicionamento dos barcos para o computador

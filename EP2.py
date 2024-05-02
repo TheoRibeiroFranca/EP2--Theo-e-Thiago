@@ -233,6 +233,10 @@ print('\t 2 destroyer \n')
 print('\t 1 couracado \n')
 print('\t 1 submarino \n')
 
+# listas para checagem de inputs corretos
+lista_linhas_checagem = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+lista_colunas_checagem = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+lista_orientacao_checagem = ["h","v"]
 # Pergunta ao jogador com que país ele deseja jogar
 n_pais_jogador = int(input('Qual o número da nação da sua frota?  \n'))
 
@@ -319,6 +323,23 @@ for i in range(len(lista_nomes_barcos_jogador)):
     proximos = ",".join(lista_nomes_barcos_jogador[i + 1:])
     print(alocar)
     print(f"Próximos:{proximos}")
+    linha = input("qual linha")
+    coluna = input("qual Letra")
+    coluna = coluna.upper()
+    while linha not in lista_linhas_checagem:
+        print("Linha inválida")
+        linha = input("qual linha")
+    while coluna not in lista_colunas_checagem:
+        print('Letra inválida')
+        coluna = input("qual Letra")
+        coluna = coluna.upper()
+    orientação = input("qual orientação[h/v]")
+    orientação = orientação.lower()
+    while orientação not in lista_orientacao_checagem:
+        print("Orientação inválida")
+        orientação = input("qual orientação[h/v]")
+        orientação = orientação.lower()
+    navio_jogador(mapa_jogador, lista_barcos_jogador[i],linha,coluna,orientação)
 
     
     

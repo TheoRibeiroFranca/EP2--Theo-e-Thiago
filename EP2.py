@@ -233,7 +233,8 @@ mapa_jogador_print = mapa_print(10)
 mapa_computador_print = mapa_print(10)
 # FIM - Criar o mapa do computador e do jogador
 
-print(mapa_jogador_print)
+#posicionamento dos barcos
+
 
 
 

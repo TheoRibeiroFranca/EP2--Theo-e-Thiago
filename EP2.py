@@ -316,6 +316,10 @@ if 'submarino' in barcos_jogador:
 
 for i in range(len(lista_nomes_barcos_jogador)):
     alocar = (f"alocar: {lista_nomes_barcos_jogador[i]} ({lista_barcos_jogador[i]} casas)")
+    proximos = ",".join(lista_nomes_barcos_jogador[i + 1:])
+    print(alocar)
+    print(f"Próximos:{proximos}")
+
     
     
 

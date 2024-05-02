@@ -202,9 +202,22 @@ print('\t 1 submarino \n')
 n_pais_jogador = input('Qual o número da naçãoda sua frota?  \n')
 pais_jogador = ''
 
-if n_pais_jogador not in lista_de_um_a_cinco:
+while n_pais_jogador not in lista_de_um_a_cinco:
     print('Opção inválida \n')
-    input('Qual o número da naçãoda sua frota?  \n')
+    input('Qual o número da nação da sua frota?  \n')
+
+dic_pais = {
+    1: "Brasil"
+    2: "França"
+    3: "Austrália"
+    4: "Rússia"
+    5: "Japão"
+}
+pais_jogador = dic_pais[n_pais_jogador]
+
+#Mensagem sobre o país do jogador
+
+print("Você escolheu {0} \n".format(pais_jogador))
 
 
 

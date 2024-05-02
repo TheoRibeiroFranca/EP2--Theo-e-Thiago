@@ -66,7 +66,18 @@ def foi_derrotado(matriz):
 #função para criar um mapa para o print
 def mapa_print(pc, jog):
     return(f'''
-
+    A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J          
+ 1                                1    1                                1
+ 2                                2    2                                2
+ 3                                3    3                                3
+ 4                                4    4                                4
+ 5                                5    5                                5 
+ 6                                6    6                                6
+ 7                                7    7                                7
+ 8                                8    8                                8
+ 9                                9    9                                9
+10                                10  10                                10
+    A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J    
 ''')
 
 # quantidade de blocos por modelo de navio

@@ -3,14 +3,14 @@ from math import *
 
 # Navio pode ser alocado na posição
 def posicao_suporta(mapa, blocos, linha, coluna, orientação):
-    if mapa[linha][coluna] == "N":
+    if mapa[linha][coluna] == " N":
         return False
     if orientação == "v":
         if (linha + blocos) > len(mapa):
             return False
         else:
             for i in range(linha, linha + blocos):
-                if mapa[i][coluna] == "N":
+                if mapa[i][coluna] == " N":
                     return False
             return True
     if orientação == "h":
@@ -19,7 +19,7 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientação):
                 return False
             else:
                 for j in range(coluna, coluna + blocos):
-                    if mapa[linha][j] == "N":
+                    if mapa[linha][j] == " N":
                         return False
                 return True
 
@@ -39,10 +39,10 @@ def aloca_navios(mapa,blocos):
             a = posicao_suporta(mapa, barcos, linha, coluna, orientacao)
         if orientacao == 'v':
             for i in range(linha, linha + barcos):
-                mapa[i][coluna] = 'N'
+                mapa[i][coluna] = ' N'
         if orientacao == 'h':
             for j in range(coluna, coluna+barcos):
-                mapa[linha][j] = 'N'
+                mapa[linha][j] = ' N'
     return mapa
 
 # Cria matriz quadrada de espaços
@@ -59,14 +59,14 @@ def cria_mapa(n):
 def foi_derrotado(matriz):
     for linhas in matriz:
         for elementos in linhas:
-            if elementos == "N":
+            if elementos == " N":
                 return False
     return True
 
 #função para criar um mapa para o print
 def mapa_print(pc, jog, pais_pc, pais_jogador):
     return(f'''
- COMPUTADOR - {pais_pc}                   JOGADOR - {pais_jogador}
+ COMPUTADOR - {pais_pc}                    JOGADOR - {pais_jogador}
     A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J          
  1 {pc[0][0]} {pc[0][1]} {pc[0][2]} {pc[0][3]} {pc[0][4]} {pc[0][5]} {pc[0][6]} {pc[0][7]} {pc[0][8]} {pc[0][9]}  1    1 {jog[0][0]} {jog[0][1]} {jog[0][2]} {jog[0][3]} {jog[0][4]} {jog[0][5]} {jog[0][6]} {jog[0][7]} {jog[0][8]} {jog[0][9]}  1
  2 {pc[1][0]} {pc[1][1]} {pc[1][2]} {pc[1][3]} {pc[1][4]} {pc[1][5]} {pc[1][6]} {pc[1][7]} {pc[1][8]} {pc[1][9]}  2    2 {jog[1][0]} {jog[1][1]} {jog[1][2]} {jog[1][3]} {jog[1][4]} {jog[1][5]} {jog[1][6]} {jog[1][7]} {jog[1][8]} {jog[1][9]}  2

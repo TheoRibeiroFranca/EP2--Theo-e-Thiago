@@ -233,7 +233,36 @@ mapa_jogador_print = mapa_print(10)
 mapa_computador_print = mapa_print(10)
 # FIM - Criar o mapa do computador e do jogador
 
-#posicionamento dos barcos
+#posicionamento dos barcos para o computador
+barcos_computador = PAISES[pais_pc]
+lista_barcos_computador = []
+if 'cruzador' in barcos_computador:
+    for n in range(barcos_computador["cruzador"]):
+        lista_barcos_computador.append(2)
+if 'torpedeiros' in barcos_computador:
+    for n in range(barcos_computador["torpedeiros"]):
+        lista_barcos_computador.append(3)
+if 'destroyer' in barcos_computador:
+    for n in range(barcos_computador["destroyer"]):
+        lista_barcos_computador.append(3)
+if 'couracado' in barcos_computador:
+    for n in range(barcos_computador["couracado"]):
+        lista_barcos_computador.append(4)
+if 'porta-avioes' in barcos_computador:
+    for n in range(barcos_computador["porta-avioes"]):
+        lista_barcos_computador.append(5)
+if 'submarino' in barcos_computador:
+    for n in range(barcos_computador["submarino"]):
+        lista_barcos_computador.append(2)
+mapa_computador = aloca_navios(mapa_computador,lista_barcos_computador)
+
+
+
+
+
+
+
+
 
 
 

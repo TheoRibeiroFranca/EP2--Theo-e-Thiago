@@ -67,7 +67,7 @@ def foi_derrotado(matriz):
 def mapa_print(n):
     lista = []
     for l in range(n):
-        cedula = ['  ']*n
+        cedula = ['   ']*n
         lista.append(cedula)
     return lista
 

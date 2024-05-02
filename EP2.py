@@ -256,6 +256,36 @@ if 'submarino' in barcos_computador:
         lista_barcos_computador.append(2)
 mapa_computador = aloca_navios(mapa_computador,lista_barcos_computador)
 
+#alocando os barcos para o jogador
+barcos_jogador = PAISES[pais_jogador]
+lista_barcos_jogador = []
+lista_nomes_barcos_jogador = []
+if 'cruzador' in barcos_jogador:
+    for n in range(barcos_jogador["cruzador"]):
+        lista_barcos_jogador.append(2)
+        lista_nomes_barcos_jogador.append("cruzador")
+if 'torpedeiros' in barcos_jogador:
+    for n in range(barcos_jogador["torpedeiros"]):
+        lista_barcos_jogador.append(3)
+        lista_nomes_barcos_jogador.append("torpedeiros")
+if 'destroyer' in barcos_jogador:
+    for n in range(barcos_jogador["destroyer"]):
+        lista_barcos_jogador.append(3)
+        lista_nomes_barcos_jogador.append("destroyer")
+if 'couracado' in barcos_jogador:
+    for n in range(barcos_jogador["couracado"]):
+        lista_barcos_jogador.append(4)
+        lista_nomes_barcos_jogador.append("couracado")
+if 'porta-avioes' in barcos_jogador:
+    for n in range(barcos_jogador["porta-avioes"]):
+        lista_barcos_jogador.append(5)
+        lista_nomes_barcos_jogador.append("porta-avioes")
+if 'submarino' in barcos_jogador:
+    for n in range(barcos_jogador["submarino"]):
+        lista_barcos_jogador.append(2)
+        lista_nomes_barcos_jogador.append("submarino")
+
+
 
 
 

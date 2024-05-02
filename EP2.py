@@ -212,8 +212,14 @@ while True:
 dic_pais = {1: "Brasil" ,2: "França" ,3: "Austrália" ,4: "Rússia" ,5: "Japão"}
 pais_jogador = dic_pais[n_pais_jogador]
 
-#Mensagem sobre o país do jogador
-print("Você escolheu {0} \n".format(pais_jogador))
+#Mensagem sobre o país do jogador e início para printar o mapa e continuar o jogo
+print("Você escolheu {0} \nAgora é sua vez de alocar seus navios de guerra! \n".format(pais_jogador))
+
+# INÍNIO - Criar o mapa do computador e do jogador
+#############
+# FIM - Criar o mapa do computador e do jogador
+
+
 
 
 

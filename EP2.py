@@ -63,6 +63,14 @@ def foi_derrotado(matriz):
                 return False
     return True
 
+#função para criar um mapa para o print
+def mapa_print(n):
+    lista = []
+    for l in range(n):
+        cedula = ['  ']*n
+        lista.append(cedula)
+    return lista
+
 # quantidade de blocos por modelo de navio
 CONFIGURACAO = {
     'destroyer': 3,
@@ -217,7 +225,16 @@ print("Você escolheu {0} \nAgora é sua vez de alocar seus navios de guerra! \n
 
 # INÍNIO - Criar o mapa do computador e do jogador
 #############
+mapa_jogador = cria_mapa(10)
+mapa_computador = cria_mapa(10)
+
+#Cria os mapas printáveis
+mapa_jogador_print = mapa_print(10)
+mapa_computador_print = mapa_print(10)
 # FIM - Criar o mapa do computador e do jogador
+
+print(mapa_jogador_print)
+
 
 
 

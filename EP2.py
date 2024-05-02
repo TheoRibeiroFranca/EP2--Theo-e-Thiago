@@ -314,6 +314,11 @@ if 'submarino' in barcos_jogador:
         lista_barcos_jogador.append(2)
         lista_nomes_barcos_jogador.append("submarino")
 
+for i in range(len(lista_nomes_barcos_jogador)):
+    alocar = (f"alocar: {lista_nomes_barcos_jogador[i]} ({lista_barcos_jogador[i]} casas)")
+    
+    
+
 
 
 

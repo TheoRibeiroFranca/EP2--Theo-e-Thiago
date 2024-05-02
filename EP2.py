@@ -64,12 +64,10 @@ def foi_derrotado(matriz):
     return True
 
 #função para criar um mapa para o print
-def mapa_print(n):
-    lista = []
-    for l in range(n):
-        cedula = ['   ']*n
-        lista.append(cedula)
-    return lista
+def mapa_print(pc, jog):
+    return(f'''
+
+''')
 
 # quantidade de blocos por modelo de navio
 CONFIGURACAO = {

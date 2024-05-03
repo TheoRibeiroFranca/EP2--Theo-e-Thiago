@@ -60,7 +60,13 @@ def foi_derrotado(matriz):
 
 #função para criar um mapa para o print
 def mapa_print(pc, jog, pais_pc, pais_jogador):
-    return(f'''
+    for linha in range(10):
+        for coluna in range(10):
+            if pc[linha][coluna] == " N":
+                pc[linha][coluna] = "  "
+            if pc[linha][coluna] == " A":
+                pc[linha][coluna] = "  "
+    a = (f'''
  COMPUTADOR - {pais_pc}                    JOGADOR - {pais_jogador}
     A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J          
  1 {pc[0][0]} {pc[0][1]} {pc[0][2]} {pc[0][3]} {pc[0][4]} {pc[0][5]} {pc[0][6]} {pc[0][7]} {pc[0][8]} {pc[0][9]}  1    1 {jog[0][0]} {jog[0][1]} {jog[0][2]} {jog[0][3]} {jog[0][4]} {jog[0][5]} {jog[0][6]} {jog[0][7]} {jog[0][8]} {jog[0][9]}  1
@@ -75,6 +81,7 @@ def mapa_print(pc, jog, pais_pc, pais_jogador):
 10 {pc[9][0]} {pc[9][1]} {pc[9][2]} {pc[9][3]} {pc[9][4]} {pc[9][5]} {pc[9][6]} {pc[9][7]} {pc[9][8]} {pc[9][9]}  10  10 {jog[9][0]} {jog[9][1]} {jog[9][2]} {jog[9][3]} {jog[9][4]} {jog[9][5]} {jog[9][6]} {jog[9][7]} {jog[9][8]} {jog[9][9]}  10
     A  B  C  D  E  F  G  H  I  J          A  B  C  D  E  F  G  H  I  J    
 ''')
+    return
 #função para alocar os navios do jogador
 def navio_jogador(mapa, barco, linha, coluna, orientação):
     a = posicao_suporta(mapa, barco, linha, coluna, orientação)
@@ -354,7 +361,7 @@ while a != "n":
     print("5")
 
     # Loop disparos 
-    while foi_derrotado(mapa_computador) != True or foi_derrotado(mapa_jogador) != True:
+    while foi_derrotado(mapa_computador) != True and foi_derrotado(mapa_jogador) != True:
         mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador) # começo tiro jogador
         print(mapa_printado)
         print("cordenadas do seu disparo")

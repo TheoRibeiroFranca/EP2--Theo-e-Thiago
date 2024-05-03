@@ -311,12 +311,13 @@ if 'submarino' in barcos_jogador:
     for n in range(barcos_jogador["submarino"]):
         lista_barcos_jogador.append(2)
         lista_nomes_barcos_jogador.append("submarino")
+# Alocação dos navios para o jogador 
 numero_de_loop = len(lista_nomes_barcos_jogador)
 for l in range(numero_de_loop):
     mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
     print(mapa_printado)
     alocar = (f"alocar: {lista_nomes_barcos_jogador[l]} ({lista_barcos_jogador[l]} casas)")
-    proximos = ",".join(lista_nomes_barcos_jogador[l:])
+    proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
     print(alocar)
     print(f"Próximos:{proximos}")
     linha = input("qual linha")
@@ -340,6 +341,65 @@ for l in range(numero_de_loop):
         orientação = input("qual orientação[h/v]")
         orientação = orientação.lower()
     navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
+    if proximos == []:
+        break
+# Mensagem de inicio
+print("Iniciando a batalha naval!")
+print("1")
+print("2")
+print("3")
+print("4")
+print("5")
+
+# Loop disparos 
+while foi_derrotado(mapa_computador) != True or foi_derrotado(mapa_jogador) != True:
+    mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador) # começo tiro jogador
+    print(mapa_printado)
+    print("cordenadas do seu disparo")
+    linha_jogador = input("qual linha")
+    coluna_jogador = input("qual Letra")
+    coluna_jogador = coluna_jogador.upper()
+    while linha_jogador not in lista_linhas_checagem:
+        print("Linha inválida")
+        linha_jogador = input("qual linha")
+    linha_jogador = lista_linhas_checagem.index(linha_jogador)
+    linha_jogador = int(linha_jogador)
+    while coluna_jogador not in lista_colunas_checagem:
+        print('Letra inválida')
+        coluna_jogador = input("qual Letra")
+        coluna_jogador = coluna_jogador.upper()
+    coluna_jogador = lista_colunas_checagem.index(coluna_jogador)
+    coluna_jogador = int(coluna_jogador)
+    while mapa_computador[linha_jogador][coluna_jogador] == " A" and mapa_computador[linha_jogador][coluna_jogador] == " D":
+        linha_jogador = input("qual linha")
+        coluna_jogador = input("qual Letra")
+        coluna_jogador = coluna_jogador.upper()
+        while linha_jogador not in lista_linhas_checagem:
+            print("Linha inválida")
+            linha_jogador = input("qual linha")
+        linha_jogador = lista_linhas_checagem.index(linha_jogador)
+        linha_jogador = int(linha_jogador)
+        while coluna_jogador not in lista_colunas_checagem:
+            print('Letra inválida')
+            coluna_jogador = input("qual Letra")
+            coluna_jogador = coluna_jogador.upper()
+        coluna_jogador = lista_colunas_checagem.index(coluna_jogador)
+        coluna_jogador = int(coluna_jogador)
+    if mapa_computador[linha_jogador][coluna_jogador] == "  ":
+        mapa_computador[linha_jogador][coluna_jogador] = " A"
+    if mapa_computador[linha_jogador][coluna_jogador] == " N":
+        mapa_computador[linha_jogador][coluna_jogador] = " D"
+    linha_computador = random.randint(0, 9) #Começo código do computador
+    coluna_computador = random.randint(0, 9)
+    while mapa_jogador[linha_computador][coluna_computador] == " A" and mapa_jogador[linha_computador][coluna_computador] == " D":
+        linha_computador = random.randint(0, 9)
+        coluna_computador = random.randint(0, 9)
+    if mapa_jogador[linha_computador][coluna_computador] == "  ":
+        mapa_jogador[linha_computador][coluna_computador] = " A"
+    if mapa_jogador[linha_computador][coluna_computador] == " N":
+        mapa_jogador[linha_computador][coluna_computador] = " D"
+
+
 
 
     

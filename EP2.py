@@ -175,202 +175,189 @@ print ('|                                     |\n')
 print (' =======   XXXXXXXXXXXXXXXXX   ======= \n')
 
 # texto pré infos
-pais_pc = random.choice(paises)
+a = 0
+while a != "n":
+    pais_pc = random.choice(paises)
 
-print ('Iniciando o Jogo! \n')
+    print ('Iniciando o Jogo! \n')
 
-print ('Computador está alocando os navios de guerra do país {0}...'.format(pais_pc))
-print ('Computador já está em posição de batalha! \n')
+    print ('Computador está alocando os navios de guerra do país {0}...'.format(pais_pc))
+    print ('Computador já está em posição de batalha! \n')
 
-# Infos Brasil
-print('1: Brasil \n')
+    # Infos Brasil
+    print('1: Brasil \n')
 
-print('\t 1 cruzador \n')
-print('\t 2 torpedeiro \n')
-print('\t 1 destroyer \n')
-print('\t 1 couracado \n')
-print('\t 1 porta-avioes \n')     
+    print('\t 1 cruzador \n')
+    print('\t 2 torpedeiro \n')
+    print('\t 1 destroyer \n')
+    print('\t 1 couracado \n')
+    print('\t 1 porta-avioes \n')     
 
-# Infos França
-print('2: França \n')
+    # Infos França
+    print('2: França \n')
 
-print('\t 3 cruzador \n')
-print('\t 1 porta-avioes \n')
-print('\t 1 destroyer \n')
-print('\t 1 submarino \n')
-print('\t 1 couracado \n')  
+    print('\t 3 cruzador \n')
+    print('\t 1 porta-avioes \n')
+    print('\t 1 destroyer \n')
+    print('\t 1 submarino \n')
+    print('\t 1 couracado \n')  
 
-# Infos Austrália 
-print('3: Austrália \n')
+    # Infos Austrália 
+    print('3: Austrália \n')
 
-print('\t 1 couracado \n')
-print('\t 3 cruzador \n')
-print('\t 1 submarino \n')
-print('\t 1 porta-avioes \n')
-print('\t 1 torpedeiro \n')
+    print('\t 1 couracado \n')
+    print('\t 3 cruzador \n')
+    print('\t 1 submarino \n')
+    print('\t 1 porta-avioes \n')
+    print('\t 1 torpedeiro \n')
 
-# Infos Rússia
-print('4: Rússia \n')
+    # Infos Rússia
+    print('4: Rússia \n')
 
-print('\t 1 cruzador \n')
-print('\t 1 porta-avioes \n')
-print('\t 2 couracado \n')
-print('\t 1 destroyes \n')
-print('\t 1 submarino \n')
+    print('\t 1 cruzador \n')
+    print('\t 1 porta-avioes \n')
+    print('\t 2 couracado \n')
+    print('\t 1 destroyes \n')
+    print('\t 1 submarino \n')
 
-# Infos Japão
-print('5: Japão \n')
+    # Infos Japão
+    print('5: Japão \n')
 
-print('\t 2 torpedeiros \n')
-print('\t 1 cruzador \n')
-print('\t 2 destroyer \n')
-print('\t 1 couracado \n')
-print('\t 1 submarino \n')
+    print('\t 2 torpedeiros \n')
+    print('\t 1 cruzador \n')
+    print('\t 2 destroyer \n')
+    print('\t 1 couracado \n')
+    print('\t 1 submarino \n')
 
-# listas para checagem de inputs corretos
-lista_linhas_checagem = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-lista_colunas_checagem = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-lista_orientacao_checagem = ["h","v"]
-# Pergunta ao jogador com que país ele deseja jogar
-n_pais_jogador = int(input('Qual o número da nação da sua frota?  \n'))
+    # listas para checagem de inputs corretos
+    lista_linhas_checagem = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    lista_colunas_checagem = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    lista_orientacao_checagem = ["h","v"]
+    # Pergunta ao jogador com que país ele deseja jogar
+    n_pais_jogador = int(input('Qual o número da nação da sua frota?  \n'))
 
 
-while True:
-    if n_pais_jogador not in lista_de_um_a_cinco:
-        print('Opção inválida \n')
-        n_pais_jogador = int(input('Qual o número da nação da sua frota?  \n'))
-    else:
-        break
+    while True:
+        if n_pais_jogador not in lista_de_um_a_cinco:
+            print('Opção inválida \n')
+            n_pais_jogador = int(input('Qual o número da nação da sua frota?  \n'))
+        else:
+            break
 
-dic_pais = {1: "Brasil" ,2: "França" ,3: "Austrália" ,4: "Rússia" ,5: "Japão"}
-pais_jogador = dic_pais[n_pais_jogador]
+    dic_pais = {1: "Brasil" ,2: "França" ,3: "Austrália" ,4: "Rússia" ,5: "Japão"}
+    pais_jogador = dic_pais[n_pais_jogador]
 
-#Mensagem sobre o país do jogador e início para printar o mapa e continuar o jogo
-print("Você escolheu {0} \nAgora é sua vez de alocar seus navios de guerra! \n".format(pais_jogador))
+    #Mensagem sobre o país do jogador e início para printar o mapa e continuar o jogo
+    print("Você escolheu {0} \nAgora é sua vez de alocar seus navios de guerra! \n".format(pais_jogador))
 
-# INÍNIO - Criar o mapa do computador e do jogador
-#############
-mapa_jogador = cria_mapa(10)
-mapa_computador = cria_mapa(10)
+    # INÍNIO - Criar o mapa do computador e do jogador
+    #############
+    mapa_jogador = cria_mapa(10)
+    mapa_computador = cria_mapa(10)
 
-#Cria os mapas printáveis
+    #Cria os mapas printáveis
 
-mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
-print(mapa_printado)
-
-# FIM - Criar o mapa do computador e do jogador
-
-#posicionamento dos barcos para o computador
-barcos_computador = PAISES[pais_pc]
-lista_barcos_computador = []
-if 'cruzador' in barcos_computador:
-    for n in range(barcos_computador["cruzador"]):
-        lista_barcos_computador.append(2)
-if 'torpedeiros' in barcos_computador:
-    for n in range(barcos_computador["torpedeiros"]):
-        lista_barcos_computador.append(3)
-if 'destroyer' in barcos_computador:
-    for n in range(barcos_computador["destroyer"]):
-        lista_barcos_computador.append(3)
-if 'couracado' in barcos_computador:
-    for n in range(barcos_computador["couracado"]):
-        lista_barcos_computador.append(4)
-if 'porta-avioes' in barcos_computador:
-    for n in range(barcos_computador["porta-avioes"]):
-        lista_barcos_computador.append(5)
-if 'submarino' in barcos_computador:
-    for n in range(barcos_computador["submarino"]):
-        lista_barcos_computador.append(2)
-mapa_computador = aloca_navios(mapa_computador,lista_barcos_computador)
-print(mapa_computador)
-#alocando os barcos para o jogador
-barcos_jogador = PAISES[pais_jogador]
-lista_barcos_jogador = []
-lista_nomes_barcos_jogador = []
-if 'cruzador' in barcos_jogador:
-    for n in range(barcos_jogador["cruzador"]):
-        lista_barcos_jogador.append(2)
-        lista_nomes_barcos_jogador.append("cruzador")
-if 'torpedeiros' in barcos_jogador:
-    for n in range(barcos_jogador["torpedeiros"]):
-        lista_barcos_jogador.append(3)
-        lista_nomes_barcos_jogador.append("torpedeiros")
-if 'destroyer' in barcos_jogador:
-    for n in range(barcos_jogador["destroyer"]):
-        lista_barcos_jogador.append(3)
-        lista_nomes_barcos_jogador.append("destroyer")
-if 'couracado' in barcos_jogador:
-    for n in range(barcos_jogador["couracado"]):
-        lista_barcos_jogador.append(4)
-        lista_nomes_barcos_jogador.append("couracado")
-if 'porta-avioes' in barcos_jogador:
-    for n in range(barcos_jogador["porta-avioes"]):
-        lista_barcos_jogador.append(5)
-        lista_nomes_barcos_jogador.append("porta-avioes")
-if 'submarino' in barcos_jogador:
-    for n in range(barcos_jogador["submarino"]):
-        lista_barcos_jogador.append(2)
-        lista_nomes_barcos_jogador.append("submarino")
-# Alocação dos navios para o jogador 
-numero_de_loop = len(lista_nomes_barcos_jogador)
-for l in range(numero_de_loop):
     mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
     print(mapa_printado)
-    alocar = (f"alocar: {lista_nomes_barcos_jogador[l]} ({lista_barcos_jogador[l]} casas)")
-    proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
-    print(alocar)
-    print(f"Próximos:{proximos}")
-    linha = input("qual linha")
-    coluna = input("qual Letra")
-    coluna = coluna.upper()
-    while linha not in lista_linhas_checagem:
-        print("Linha inválida")
+
+    # FIM - Criar o mapa do computador e do jogador
+
+    #posicionamento dos barcos para o computador
+    barcos_computador = PAISES[pais_pc]
+    lista_barcos_computador = []
+    if 'cruzador' in barcos_computador:
+        for n in range(barcos_computador["cruzador"]):
+            lista_barcos_computador.append(2)
+    if 'torpedeiros' in barcos_computador:
+        for n in range(barcos_computador["torpedeiros"]):
+            lista_barcos_computador.append(3)
+    if 'destroyer' in barcos_computador:
+        for n in range(barcos_computador["destroyer"]):
+            lista_barcos_computador.append(3)
+    if 'couracado' in barcos_computador:
+        for n in range(barcos_computador["couracado"]):
+            lista_barcos_computador.append(4)
+    if 'porta-avioes' in barcos_computador:
+        for n in range(barcos_computador["porta-avioes"]):
+            lista_barcos_computador.append(5)
+    if 'submarino' in barcos_computador:
+        for n in range(barcos_computador["submarino"]):
+            lista_barcos_computador.append(2)
+    mapa_computador = aloca_navios(mapa_computador,lista_barcos_computador)
+    print(mapa_computador)
+    #alocando os barcos para o jogador
+    barcos_jogador = PAISES[pais_jogador]
+    lista_barcos_jogador = []
+    lista_nomes_barcos_jogador = []
+    if 'cruzador' in barcos_jogador:
+        for n in range(barcos_jogador["cruzador"]):
+            lista_barcos_jogador.append(2)
+            lista_nomes_barcos_jogador.append("cruzador")
+    if 'torpedeiros' in barcos_jogador:
+        for n in range(barcos_jogador["torpedeiros"]):
+            lista_barcos_jogador.append(3)
+            lista_nomes_barcos_jogador.append("torpedeiros")
+    if 'destroyer' in barcos_jogador:
+        for n in range(barcos_jogador["destroyer"]):
+            lista_barcos_jogador.append(3)
+            lista_nomes_barcos_jogador.append("destroyer")
+    if 'couracado' in barcos_jogador:
+        for n in range(barcos_jogador["couracado"]):
+            lista_barcos_jogador.append(4)
+            lista_nomes_barcos_jogador.append("couracado")
+    if 'porta-avioes' in barcos_jogador:
+        for n in range(barcos_jogador["porta-avioes"]):
+            lista_barcos_jogador.append(5)
+            lista_nomes_barcos_jogador.append("porta-avioes")
+    if 'submarino' in barcos_jogador:
+        for n in range(barcos_jogador["submarino"]):
+            lista_barcos_jogador.append(2)
+            lista_nomes_barcos_jogador.append("submarino")
+    # Alocação dos navios para o jogador 
+    numero_de_loop = len(lista_nomes_barcos_jogador)
+    for l in range(numero_de_loop):
+        mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
+        print(mapa_printado)
+        alocar = (f"alocar: {lista_nomes_barcos_jogador[l]} ({lista_barcos_jogador[l]} casas)")
+        proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
+        print(alocar)
+        print(f"Próximos:{proximos}")
         linha = input("qual linha")
-    linha = lista_linhas_checagem.index(linha)
-    linha = int(linha)
-    while coluna not in lista_colunas_checagem:
-        print('Letra inválida')
         coluna = input("qual Letra")
         coluna = coluna.upper()
-    coluna = lista_colunas_checagem.index(coluna)
-    coluna = int(coluna)
-    orientação = input("qual orientação[h/v]")
-    orientação = orientação.lower()
-    while orientação not in lista_orientacao_checagem:
-        print("Orientação inválida")
+        while linha not in lista_linhas_checagem:
+            print("Linha inválida")
+            linha = input("qual linha")
+        linha = lista_linhas_checagem.index(linha)
+        linha = int(linha)
+        while coluna not in lista_colunas_checagem:
+            print('Letra inválida')
+            coluna = input("qual Letra")
+            coluna = coluna.upper()
+        coluna = lista_colunas_checagem.index(coluna)
+        coluna = int(coluna)
         orientação = input("qual orientação[h/v]")
         orientação = orientação.lower()
-    navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
-    if proximos == []:
-        break
-# Mensagem de inicio
-print("Iniciando a batalha naval!")
-print("1")
-print("2")
-print("3")
-print("4")
-print("5")
+        while orientação not in lista_orientacao_checagem:
+            print("Orientação inválida")
+            orientação = input("qual orientação[h/v]")
+            orientação = orientação.lower()
+        navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
+        if proximos == []:
+            break
+    # Mensagem de inicio
+    print("Iniciando a batalha naval!")
+    print("1")
+    print("2")
+    print("3")
+    print("4")
+    print("5")
 
-# Loop disparos 
-while foi_derrotado(mapa_computador) != True or foi_derrotado(mapa_jogador) != True:
-    mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador) # começo tiro jogador
-    print(mapa_printado)
-    print("cordenadas do seu disparo")
-    linha_jogador = input("qual linha")
-    coluna_jogador = input("qual Letra")
-    coluna_jogador = coluna_jogador.upper()
-    while linha_jogador not in lista_linhas_checagem:
-        print("Linha inválida")
-        linha_jogador = input("qual linha")
-    linha_jogador = lista_linhas_checagem.index(linha_jogador)
-    linha_jogador = int(linha_jogador)
-    while coluna_jogador not in lista_colunas_checagem:
-        print('Letra inválida')
-        coluna_jogador = input("qual Letra")
-        coluna_jogador = coluna_jogador.upper()
-    coluna_jogador = lista_colunas_checagem.index(coluna_jogador)
-    coluna_jogador = int(coluna_jogador)
-    while mapa_computador[linha_jogador][coluna_jogador] == " A" and mapa_computador[linha_jogador][coluna_jogador] == " D":
+    # Loop disparos 
+    while foi_derrotado(mapa_computador) != True or foi_derrotado(mapa_jogador) != True:
+        mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador) # começo tiro jogador
+        print(mapa_printado)
+        print("cordenadas do seu disparo")
         linha_jogador = input("qual linha")
         coluna_jogador = input("qual Letra")
         coluna_jogador = coluna_jogador.upper()
@@ -385,20 +372,42 @@ while foi_derrotado(mapa_computador) != True or foi_derrotado(mapa_jogador) != T
             coluna_jogador = coluna_jogador.upper()
         coluna_jogador = lista_colunas_checagem.index(coluna_jogador)
         coluna_jogador = int(coluna_jogador)
-    if mapa_computador[linha_jogador][coluna_jogador] == "  ":
-        mapa_computador[linha_jogador][coluna_jogador] = " A"
-    if mapa_computador[linha_jogador][coluna_jogador] == " N":
-        mapa_computador[linha_jogador][coluna_jogador] = " D"
-    linha_computador = random.randint(0, 9) #Começo código do computador
-    coluna_computador = random.randint(0, 9)
-    while mapa_jogador[linha_computador][coluna_computador] == " A" and mapa_jogador[linha_computador][coluna_computador] == " D":
-        linha_computador = random.randint(0, 9)
+        while mapa_computador[linha_jogador][coluna_jogador] == " A" and mapa_computador[linha_jogador][coluna_jogador] == " D":
+            linha_jogador = input("qual linha")
+            coluna_jogador = input("qual Letra")
+            coluna_jogador = coluna_jogador.upper()
+            while linha_jogador not in lista_linhas_checagem:
+                print("Linha inválida")
+                linha_jogador = input("qual linha")
+            linha_jogador = lista_linhas_checagem.index(linha_jogador)
+            linha_jogador = int(linha_jogador)
+            while coluna_jogador not in lista_colunas_checagem:
+                print('Letra inválida')
+                coluna_jogador = input("qual Letra")
+                coluna_jogador = coluna_jogador.upper()
+            coluna_jogador = lista_colunas_checagem.index(coluna_jogador)
+            coluna_jogador = int(coluna_jogador)
+        if mapa_computador[linha_jogador][coluna_jogador] == "  ":
+            mapa_computador[linha_jogador][coluna_jogador] = " A"
+        if mapa_computador[linha_jogador][coluna_jogador] == " N":
+            mapa_computador[linha_jogador][coluna_jogador] = " D"
+        linha_computador = random.randint(0, 9) #Começo código do computador
         coluna_computador = random.randint(0, 9)
-    if mapa_jogador[linha_computador][coluna_computador] == "  ":
-        mapa_jogador[linha_computador][coluna_computador] = " A"
-    if mapa_jogador[linha_computador][coluna_computador] == " N":
-        mapa_jogador[linha_computador][coluna_computador] = " D"
-
+        while mapa_jogador[linha_computador][coluna_computador] == " A" and mapa_jogador[linha_computador][coluna_computador] == " D":
+            linha_computador = random.randint(0, 9)
+            coluna_computador = random.randint(0, 9)
+        if mapa_jogador[linha_computador][coluna_computador] == "  ":
+            mapa_jogador[linha_computador][coluna_computador] = " A"
+        if mapa_jogador[linha_computador][coluna_computador] == " N":
+            mapa_jogador[linha_computador][coluna_computador] = " D"
+    if foi_derrotado(mapa_computador):
+        print("você venceu!")
+        print("Temos um novo xerife dos mares!")
+    if foi_derrotado(mapa_jogador):
+        print("você perdeu!")
+        print("O computador ainda é o xerife dos mares!")
+    a = input("Jogar novamente? [s/n] ")
+    a = a.lower(a)
 
 
 

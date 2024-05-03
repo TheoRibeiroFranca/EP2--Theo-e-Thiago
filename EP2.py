@@ -402,6 +402,7 @@ while foi_derrotado(mapa_computador) != True or foi_derrotado(mapa_jogador) != T
 
 
 
+
     
     
 

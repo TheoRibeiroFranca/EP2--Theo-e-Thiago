@@ -317,12 +317,12 @@ if 'submarino' in barcos_jogador:
     for n in range(barcos_jogador["submarino"]):
         lista_barcos_jogador.append(2)
         lista_nomes_barcos_jogador.append("submarino")
-
-for l in range(len(lista_nomes_barcos_jogador)):
+numero_de_loop = len(lista_nomes_barcos_jogador)
+for l in range(numero_de_loop):
     mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
     print(mapa_printado)
     alocar = (f"alocar: {lista_nomes_barcos_jogador[l]} ({lista_barcos_jogador[l]} casas)")
-    proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
+    proximos = ",".join(lista_nomes_barcos_jogador[l:])
     print(alocar)
     print(f"Próximos:{proximos}")
     linha = input("qual linha")
@@ -346,7 +346,7 @@ for l in range(len(lista_nomes_barcos_jogador)):
         orientação = input("qual orientação[h/v]")
         orientação = orientação.lower()
     navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
-    
+
 
     
     

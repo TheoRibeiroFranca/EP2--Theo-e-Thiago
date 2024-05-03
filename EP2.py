@@ -342,26 +342,32 @@ while a != "n":
         proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
         print(alocar)
         print(f"Próximos:{proximos}")
-        linha = input("qual linha")
-        coluna = input("qual Letra")
-        coluna = coluna.upper()
-        while linha not in lista_linhas_checagem:
-            print("Linha inválida")
+        a = False
+        while a != True:
             linha = input("qual linha")
-        linha = lista_linhas_checagem.index(linha)
-        linha = int(linha)
-        while coluna not in lista_colunas_checagem:
-            print('Letra inválida')
             coluna = input("qual Letra")
             coluna = coluna.upper()
-        coluna = lista_colunas_checagem.index(coluna)
-        coluna = int(coluna)
-        orientação = input("qual orientação[h/v]")
-        orientação = orientação.lower()
-        while orientação not in lista_orientacao_checagem:
-            print("Orientação inválida")
+            while linha not in lista_linhas_checagem:
+                print("Linha inválida")
+                linha = input("qual linha")
+            linha = lista_linhas_checagem.index(linha)
+            linha = int(linha)
+            while coluna not in lista_colunas_checagem:
+                print('Letra inválida')
+                coluna = input("qual Letra")
+                coluna = coluna.upper()
+            coluna = lista_colunas_checagem.index(coluna)
+            coluna = int(coluna)
             orientação = input("qual orientação[h/v]")
             orientação = orientação.lower()
+            while orientação not in lista_orientacao_checagem:
+                print("Orientação inválida")
+                orientação = input("qual orientação[h/v]")
+                orientação = orientação.lower()
+            if posicao_suporta(mapa_jogador,lista_barcos_jogador[l], linha, coluna, orientação) == False:
+                print("Localização inválida")
+                print("Tente de novo")
+            a = posicao_suporta(mapa_jogador,lista_barcos_jogador[l], linha, coluna, orientação)
         navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
         if proximos == []:
             break

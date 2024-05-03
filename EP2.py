@@ -49,7 +49,7 @@ def aloca_navios(mapa,blocos):
 # Cria matriz quadrada de espaços
 def cria_mapa(n):
     listona = []
-    linha_referencia = ['  '] * n
+    linha_referencia = [' '] * n
 
     for i in range(0,n):
         listona.append(linha_referencia)
@@ -60,9 +60,10 @@ def cria_mapa(n):
 def foi_derrotado(matriz):
     for linhas in matriz:
         for elementos in linhas:
-            if elementos == " N":
+            if elementos == "N":
                 return False
     return True
+
 
 #função para criar um mapa para o print
 def mapa_print(pc, jog, pais_pc, pais_jogador):

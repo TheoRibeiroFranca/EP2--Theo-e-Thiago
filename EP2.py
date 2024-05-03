@@ -47,13 +47,7 @@ def aloca_navios(mapa, blocos):
 
 # Cria matriz quadrada de espaços
 def cria_mapa(n):
-    listona = []
-    linha_referencia = ['  '] * n
-
-    for i in range(0,n):
-        listona.append(linha_referencia)
-    
-    return listona
+    return [['  '] * n for _ in range(n)]
 
 
 # Verifica se acabou os 'N's da matriz

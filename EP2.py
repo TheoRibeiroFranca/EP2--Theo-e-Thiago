@@ -94,10 +94,10 @@ def navio_jogador(mapa, barco, linha, coluna, orientação):
         a = posicao_suporta(mapa, barco, linha, coluna, orientação)
     if orientação == 'v':
         for i in range(linha, linha + barco):
-            mapa[i][coluna] = ' N'
+            mapa[i][coluna] = 'N'
     if orientação == 'h':
         for j in range(coluna, coluna+barco):
-            mapa[linha][j] = ' N'
+            mapa[linha][j] = 'N'
     return mapa
 # quantidade de blocos por modelo de navio
 CONFIGURACAO = {

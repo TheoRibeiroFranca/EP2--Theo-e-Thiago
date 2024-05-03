@@ -82,20 +82,19 @@ def mapa_print(pc, jog, pais_pc, pais_jogador):
 ''')
 #função para alocar os navios do jogador
 def navio_jogador(mapa, barco, linha, coluna, orientação):
-    barcos = [barco]
-    a = posicao_suporta(mapa, barcos, linha, coluna, orientação)
+    a = posicao_suporta(mapa, barco, linha, coluna, orientação)
     while a != True:
         print("Espaço inválido")
         print("tente de novo")
         linha = input("qual linha") 
         coluna = input("qual coluna")
         orientação = input("qual orientação")
-        a = posicao_suporta(mapa, barcos, linha, coluna, orientação)
+        a = posicao_suporta(mapa, barco, linha, coluna, orientação)
     if orientação == 'v':
-        for i in range(linha, linha + barcos):
+        for i in range(linha, linha + barco):
             mapa[i][coluna] = ' N'
     if orientação == 'h':
-        for j in range(coluna, coluna+barcos):
+        for j in range(coluna, coluna+barco):
             mapa[linha][j] = ' N'
     return mapa
 # quantidade de blocos por modelo de navio
@@ -287,7 +286,9 @@ if 'porta-avioes' in barcos_computador:
 if 'submarino' in barcos_computador:
     for n in range(barcos_computador["submarino"]):
         lista_barcos_computador.append(2)
+print(lista_barcos_computador)
 mapa_computador = aloca_navios(mapa_computador,lista_barcos_computador)
+print(mapa_computador)
 
 #alocando os barcos para o jogador
 barcos_jogador = PAISES[pais_jogador]
@@ -319,6 +320,8 @@ if 'submarino' in barcos_jogador:
         lista_nomes_barcos_jogador.append("submarino")
 
 for i in range(len(lista_nomes_barcos_jogador)):
+    mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
+    print(mapa_printado)
     alocar = (f"alocar: {lista_nomes_barcos_jogador[i]} ({lista_barcos_jogador[i]} casas)")
     proximos = ",".join(lista_nomes_barcos_jogador[i + 1:])
     print(alocar)
@@ -329,10 +332,12 @@ for i in range(len(lista_nomes_barcos_jogador)):
     while linha not in lista_linhas_checagem:
         print("Linha inválida")
         linha = input("qual linha")
+    linha = lista_linhas_checagem.index(linha)
     while coluna not in lista_colunas_checagem:
         print('Letra inválida')
         coluna = input("qual Letra")
         coluna = coluna.upper()
+    coluna = lista_colunas_checagem.index(coluna)
     orientação = input("qual orientação[h/v]")
     orientação = orientação.lower()
     while orientação not in lista_orientacao_checagem:

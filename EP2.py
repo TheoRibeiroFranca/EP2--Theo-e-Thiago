@@ -3,14 +3,14 @@ from math import *
 
 # Navio pode ser alocado na posição
 def posicao_suporta(mapa, blocos, linha, coluna, orientacao):
-    if mapa[linha][coluna] == "N":
+    if mapa[linha][coluna] == " N":
         return False
     if orientacao == "v":
         if (linha + blocos) > len(mapa):
             return False
         else:
             for i in range(linha, linha + blocos):
-                if mapa[i][coluna] == "N":
+                if mapa[i][coluna] == " N":
                     return False
             return True
     if orientacao == "h":
@@ -18,7 +18,7 @@ def posicao_suporta(mapa, blocos, linha, coluna, orientacao):
             return False
         else:
             for j in range(coluna, coluna + blocos):
-                if mapa[linha][j] == "N":
+                if mapa[linha][j] == " N":
                     return False
             return True
 
@@ -38,10 +38,10 @@ def aloca_navios(mapa, blocos):
             a = posicao_suporta(mapa, barcos, linha, coluna, orientacao)
         if orientacao == 'v':
             for i in range(linha, linha + barcos):
-                mapa[i][coluna] = 'N'
+                mapa[i][coluna] = ' N'
         if orientacao == 'h':
             for j in range(coluna, coluna + barcos):
-                mapa[linha][j] = 'N'
+                mapa[linha][j] = ' N'
     return mapa
 
 
@@ -60,7 +60,7 @@ def cria_mapa(n):
 def foi_derrotado(matriz):
     for linhas in matriz:
         for elementos in linhas:
-            if elementos == "N":
+            if elementos == " N":
                 return False
     return True
 
@@ -318,11 +318,11 @@ if 'submarino' in barcos_jogador:
         lista_barcos_jogador.append(2)
         lista_nomes_barcos_jogador.append("submarino")
 
-for i in range(len(lista_nomes_barcos_jogador)):
+for l in range(len(lista_nomes_barcos_jogador)):
     mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador)
     print(mapa_printado)
-    alocar = (f"alocar: {lista_nomes_barcos_jogador[i]} ({lista_barcos_jogador[i]} casas)")
-    proximos = ",".join(lista_nomes_barcos_jogador[i + 1:])
+    alocar = (f"alocar: {lista_nomes_barcos_jogador[l]} ({lista_barcos_jogador[l]} casas)")
+    proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
     print(alocar)
     print(f"Próximos:{proximos}")
     linha = input("qual linha")
@@ -345,7 +345,8 @@ for i in range(len(lista_nomes_barcos_jogador)):
         print("Orientação inválida")
         orientação = input("qual orientação[h/v]")
         orientação = orientação.lower()
-    navio_jogador(mapa_jogador, lista_barcos_jogador[i],linha,coluna,orientação)
+    navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
+    
 
     
     

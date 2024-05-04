@@ -195,8 +195,7 @@ print ('|                                     |\n')
 print (' =======   XXXXXXXXXXXXXXXXX   ======= \n')
 
 # texto pré infos
-a = 0
-while a != "n":
+while True:
     pais_pc = random.choice(paises)
 
     print ('Iniciando o Jogo! \n')
@@ -304,7 +303,6 @@ while a != "n":
         for n in range(barcos_computador["submarino"]):
             lista_barcos_computador.append(2)
     mapa_computador = aloca_navios(mapa_computador,lista_barcos_computador)
-    print(mapa_computador)
     #alocando os barcos para o jogador
     barcos_jogador = PAISES[pais_jogador]
     lista_barcos_jogador = []
@@ -342,33 +340,27 @@ while a != "n":
         proximos = ",".join(lista_nomes_barcos_jogador[l + 1:])
         print(alocar)
         print(f"Próximos:{proximos}")
-        a = False
-        while a != True:
+        linha = input("qual linha")
+        coluna = input("qual Letra")
+        coluna = coluna.upper()
+        while linha not in lista_linhas_checagem:
+            print("Linha inválida")
             linha = input("qual linha")
+            linha = lista_linhas_checagem.index(linha)
+        linha = int(linha) - 1
+        while coluna not in lista_colunas_checagem:
+            print('Letra inválida')
             coluna = input("qual Letra")
             coluna = coluna.upper()
-            while linha not in lista_linhas_checagem:
-                print("Linha inválida")
-                linha = input("qual linha")
-            linha = lista_linhas_checagem.index(linha)
-            linha = int(linha)
-            while coluna not in lista_colunas_checagem:
-                print('Letra inválida')
-                coluna = input("qual Letra")
-                coluna = coluna.upper()
-            coluna = lista_colunas_checagem.index(coluna)
-            coluna = int(coluna)
+        coluna = lista_colunas_checagem.index(coluna)
+        coluna = int(coluna)
+        orientação = input("qual orientação[h/v]")
+        orientação = orientação.lower()
+        while orientação not in lista_orientacao_checagem:
+            print("Orientação inválida")
             orientação = input("qual orientação[h/v]")
             orientação = orientação.lower()
-            while orientação not in lista_orientacao_checagem:
-                print("Orientação inválida")
-                orientação = input("qual orientação[h/v]")
-                orientação = orientação.lower()
-            if posicao_suporta(mapa_jogador,lista_barcos_jogador[l], linha, coluna, orientação) == False:
-                print("Localização inválida")
-                print("Tente de novo")
-            a = posicao_suporta(mapa_jogador,lista_barcos_jogador[l], linha, coluna, orientação)
-        navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
+        mapa_jogador = navio_jogador(mapa_jogador, lista_barcos_jogador[l],linha,coluna,orientação)
         if proximos == []:
             break
     # Mensagem de inicio
@@ -380,7 +372,9 @@ while a != "n":
     print("5")
 
     # Loop disparos 
-    while foi_derrotado(mapa_computador) != True and foi_derrotado(mapa_jogador) != True:
+    a = foi_derrotado(mapa_jogador)
+    b = foi_derrotado(mapa_computador)
+    while not(a or b):
         mapa_printado = mapa_print(mapa_computador,mapa_jogador,pais_pc,pais_jogador) # começo tiro jogador
         print(mapa_printado)
         print("cordenadas do seu disparo")
@@ -426,14 +420,24 @@ while a != "n":
             mapa_jogador[linha_computador][coluna_computador] = " A"
         if mapa_jogador[linha_computador][coluna_computador] == " N":
             mapa_jogador[linha_computador][coluna_computador] = " D"
+        a = foi_derrotado(mapa_jogador)
+        b = foi_derrotado(mapa_computador)
     if foi_derrotado(mapa_computador):
         print("você venceu!")
         print("Temos um novo xerife dos mares!")
-    if foi_derrotado(mapa_jogador):
+    elif foi_derrotado(mapa_jogador):
         print("você perdeu!")
         print("O computador ainda é o xerife dos mares!")
-    a = input("Jogar novamente? [s/n] ")
-    a = a.lower(a)
+    replay = input("Jogar novamente? [s/n] ").lower()
+    while replay not in ["s", "n"]:
+        replay = input("Opção inválida. Jogar novamente? [s/n] ").lower()
+
+    if replay == "s":
+    # Se o jogador quiser jogar novamente, redefinimos o jogo
+        continue
+    else:
+        break
+print("Até logo!")
 
 
 
